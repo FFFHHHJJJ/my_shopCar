@@ -1,8 +1,12 @@
 <template>
   <div class="my-counter">
-    <button type="button" class="btn btn-light">-</button>
+    <button type="button" class="btn btn-light" @click="list.goods_count--">
+      -
+    </button>
     <input type="number" class="form-control inp" v-model="list.goods_count" />
-    <button type="button" class="btn btn-light">+</button>
+    <button type="button" class="btn btn-light" @click="list.goods_count++">
+      +
+    </button>
   </div>
 </template>
 
@@ -12,6 +16,17 @@ export default {
     list: {
       type: Object,
       required: true
+    }
+  },
+  watch: {
+    list: {
+      deep: true,
+      immediate: true,
+      handler() {
+        if (this.list.goods_count <= 0) {
+          this.list.goods_count = 0
+        }
+      }
     }
   }
 }
