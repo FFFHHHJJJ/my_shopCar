@@ -1,11 +1,15 @@
 <template>
   <div class="app">
     <Myheader title="购物车案例" color="black"></Myheader>
-    <MyGoods v-for="item in GoodList" :key="item.goods_id" :list='item'></MyGoods>
-    <MyFooter></MyFooter>
+    <MyGoods
+      v-for="item in GoodList"
+      :key="item.goods_id"
+      :list="item"
+    ></MyGoods>
+    <MyFooter :list="GoodList"></MyFooter>
   </div>
 </template>
-
+GoodList
 <script>
 import Myheader from '@/components/Myheader'
 import MyGoods from '@/components/MyGoods'
