@@ -1,13 +1,20 @@
 <template>
   <div class="my-counter">
     <button type="button" class="btn btn-light">-</button>
-    <input type="number" class="form-control inp" />
+    <input type="number" class="form-control inp" v-model="list.goods_count" />
     <button type="button" class="btn btn-light">+</button>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    list: {
+      type: Object,
+      required: true
+    }
+  }
+}
 </script>
 
 <style lang="less" scoped>
